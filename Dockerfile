@@ -12,5 +12,11 @@ RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/instal
 ENV PATH="${PATH}:/home/linuxbrew/.linuxbrew/bin"
 RUN brew tap rosco-m68k/toolchain
 RUN brew install gcc-cross-m68k@13 vasm-all srecord
+RUN brew unlink binutils-cross-m68k
+RUN brew unlink gcc-cross-m68k@13
+RUN brew unlink vasm-all
+RUN brew install --HEAD rosco-m68k-toolchain@13
+RUN brew link --overwrite binutils-cross-m68k
+RUN brew link --overwrite gcc-cross-m68k@13
 ENTRYPOINT /bin/zsh
 
