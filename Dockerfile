@@ -19,5 +19,6 @@ RUN brew unlink vasm-all
 RUN brew install rosco-m68k-toolchain@13
 RUN brew link --overwrite binutils-cross-m68k
 RUN brew link --overwrite gcc-cross-m68k@13
+RUN brew link --overwrite vasm-all
 ENTRYPOINT /bin/zsh
 
